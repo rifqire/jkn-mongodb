@@ -1,7 +1,10 @@
+// Import function UserList
+import UserList from './components/UserList';
+
 function App() {
   return (
-    <div>
-      <h1>Hello world!</h1>
+    <div className='container'>
+      <UserList/>
     </div>
   );
 }
