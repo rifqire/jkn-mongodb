@@ -1,5 +1,5 @@
 // Command rafce, then import useState and useEffect
-import React, {useState, useEffect} from 'react'
+import React, { useState, useEffect } from 'react'
 // Import axios to fetch data from API
 import axios from 'axios'
 
@@ -7,15 +7,19 @@ const UserList = () => {
     // Create new states
     const [users, setUser] = useState([])
 
-    // Use effect dan panggil method getAllUsers
+    // Use effect and call method getAllUsers
     useEffect(() => {
         getAllUsers()
     }, [])
 
     // Function to get all user data from API with axios
-    const getAllUsers = async() => {
+    const getAllUsers = async () => {
         const response = await axios.get('http://localhost:5000/users')
-        console.log(response.data)
+        // Display all users in console
+        // console.log(response.data)
+
+        // Display all users in the table with setUser function
+        setUser(response.data)
     }
 
     return (
@@ -32,13 +36,19 @@ const UserList = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
+                    {/* Loop to display all users in respected columns */}
+                    {users.map((user, index) => (
+                        <tr key={user._id}>
+                            <td>{index + 1}</td>
+                            <td>{user.name}</td>
+                            <td>{user.email}</td>
+                            <td>{user.gender}</td>
+                            <td>
+                                <button className='button is-info is-small'>Edit</button>
+                                <button className='button is-danger is-small'>Delete</button>
+                            </td>
+                        </tr>
+                    ))}
                 </tbody>
             </table>
         </div>
