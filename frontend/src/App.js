@@ -2,8 +2,9 @@
 import UserList from './components/UserList'
 // Import RRD consists of browser router, routes & route
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-// Import component AddUser
+// Import components AddUser, EditUser
 import AddUser from './components/AddUser'
+import EditUser from './components/EditUser'
 
 function App() {
   return (
@@ -14,6 +15,8 @@ function App() {
         <Routes>
           <Route path='/' element={<UserList />} />
           <Route path='/add' element={<AddUser />} />
+          {/* To edit/update user must provide id in path */}
+          <Route path='/edit/:id' element={<EditUser />} />
         </Routes>
       </div>
     </BrowserRouter>
