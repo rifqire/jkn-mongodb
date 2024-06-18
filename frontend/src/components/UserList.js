@@ -3,8 +3,8 @@ import React, { useState, useEffect } from 'react'
 // Import axios to fetch data from API
 import axios from 'axios'
 
+// Create new states
 const UserList = () => {
-    // Create new states
     const [users, setUser] = useState([])
 
     // Use effect and call method getAllUsers
