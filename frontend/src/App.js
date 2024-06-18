@@ -1,12 +1,12 @@
 // Import function UserList
-import UserList from './components/UserList';
+import UserList from './components/UserList'
 
 function App() {
   return (
     <div className='container'>
       <UserList/>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
